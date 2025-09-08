@@ -2,15 +2,8 @@
 
 import { Link } from "react-router";
 import { motion, type Variants } from "framer-motion";
-import {
-  Wallet,
-  Shield,
-  Users,
-  Mail,
-  MapPin,
-  Phone,
-  ExternalLink,
-} from "lucide-react";
+import { Shield, Users, Mail, MapPin, Phone, ExternalLink } from "lucide-react";
+import Logo from "@/components/logo";
 
 export default function Footer() {
   const containerVariants = {
@@ -51,7 +44,7 @@ export default function Footer() {
           <motion.div variants={itemVariants} className='lg:col-span-2'>
             <div className='flex items-center gap-3 mb-6'>
               <div className='p-2 bg-gradient-to-br from-rose-500 to-pink-600 rounded-xl shadow-lg'>
-                <Wallet className='h-8 w-8 text-white' aria-hidden='true' />
+                <Logo />
               </div>
               <span className='text-2xl font-bold bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent'>
                 Dream Wallet

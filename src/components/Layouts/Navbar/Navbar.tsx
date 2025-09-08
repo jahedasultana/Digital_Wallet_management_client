@@ -42,8 +42,17 @@ import { useLogoutMutation } from "@/redux/features/auth/authApi";
 import { toast } from "sonner";
 import { useAppDispatch } from "@/redux/hook";
 import { baseApi } from "@/redux/baseApi";
+import { createTour } from "@/config/driverConfig";
 
 export default function Navbar() {
+  useEffect(() => {
+    const hasSeenTour = localStorage.getItem("navbarTour");
+    if (!hasSeenTour) {
+      createTour().drive();
+      localStorage.setItem("navbarTour", "true");
+    }
+  }, []);
+
   const { data } = useGetUserInfoQuery(undefined);
   const dispatch = useAppDispatch();
 
@@ -98,7 +107,10 @@ export default function Navbar() {
       className='sticky top-0 z-50 w-full border-b bg-gradient-to-r from-rose-50/95 to-pink-50/95 backdrop-blur-md dark:from-rose-950/95 dark:to-pink-950/95 supports-[backdrop-filter]:bg-background/60'
       role='banner'
     >
-      <div className='container flex h-16 items-center justify-between px-4 md:px-6'>
+      <div
+        className='container flex h-16 items-center justify-between px-4 md:px-6'
+        id='nav-links'
+      >
         {/* Left side */}
         <div className='flex flex-1 items-center gap-2'>
           <Sheet open={isMobileMenuOpen} onOpenChange={setIsMobileMenuOpen}>
@@ -141,7 +153,10 @@ export default function Navbar() {
               aria-describedby='mobile-nav-description'
             >
               <SheetHeader className='p-6 border-b border-rose-100 dark:border-rose-800'>
-                <SheetTitle className='flex items-center gap-3 text-left'>
+                <SheetTitle
+                  className='flex items-center gap-3 text-left'
+                  id='logo-btn'
+                >
                   <Logo />
                   <span className='text-lg font-semibold bg-gradient-to-r from-rose-600 to-pink-600 bg-clip-text text-transparent'>
                     Dream Wallet
@@ -156,6 +171,7 @@ export default function Navbar() {
                 className='flex flex-col p-6'
                 role='navigation'
                 aria-label='Mobile navigation'
+                id='nav-links'
               >
                 <ul className='space-y-2' role='list'>
                   {navigationLinks.map((link, index) => {
@@ -250,6 +266,7 @@ export default function Navbar() {
               to='/'
               className='text-primary hover:text-primary/90 transition-colors focus:outline-none focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 rounded-md'
               aria-label='Dream Wallet Home'
+              id='logo-btn'
             >
               <Logo />
             </Link>
@@ -309,10 +326,14 @@ export default function Navbar() {
         {/* Right side */}
         <div className='flex items-center gap-3'>
           {/* Theme toggle */}
-          <ModeToggle />
+          <div id='theme-toggle'>
+            <ModeToggle />
+          </div>
 
           {isAuthenticated ? (
-            <UserMenu user={user} />
+            <div id='user-menu'>
+              <UserMenu user={user} />
+            </div>
           ) : (
             <div className='flex items-center gap-2'>
               <Button

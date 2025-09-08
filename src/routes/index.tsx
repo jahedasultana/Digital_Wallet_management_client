@@ -26,9 +26,10 @@ import AgentTransactions from "@/pages/dashboard/agent/agent-transactions";
 import { AdminStats } from "@/pages/dashboard/admin/admin-stats";
 import { AdminUsers } from "@/pages/dashboard/admin/admin-users";
 import { AdminWallets } from "@/pages/dashboard/admin/admin-wallets";
-import { AdminTransactions } from "@/pages/dashboard/admin/admin-transactions";
+import AdminTransactions from "@/pages/dashboard/admin/admin-transactions";
 import { AdminAgents } from "@/pages/dashboard/admin/admin-agents";
 import { AdminProfile } from "@/pages/dashboard/admin/admin-profile";
+
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +41,8 @@ export const router = createBrowserRouter([
       { Component: Features, path: "features" },
       { Component: FaqPage, path: "faq" },
       { Component: Contact, path: "contact" },
+      // { Component: withAuth(Login), path: "login" },
+      // { Component: withAuth(Register), path: "signup" },
       { Component: Login, path: "login" },
       { Component: Register, path: "signup" },
       { Component: UnAuthorised, path: "unauthorized" },

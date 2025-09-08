@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
 import { useForm } from "react-hook-form";
@@ -15,8 +16,8 @@ import {
 } from "@/components/ui/form";
 import { toast } from "sonner";
 import { Lock } from "lucide-react";
-import { useResetPasswordMutation } from "@/redux/features/auth/authApi"; // import your mutation
-import { useNavigate } from "react-router";
+import { useResetPasswordMutation } from "@/redux/features/auth/authApi";
+import { useNavigate, useSearchParams } from "react-router"; // use react-router-dom
 
 const resetSchema = z.object({
   newPassword: z.string().min(8, "Password must be at least 8 characters"),
@@ -27,6 +28,9 @@ type ResetFormData = z.infer<typeof resetSchema>;
 const ResetPassword = () => {
   const navigation = useNavigate();
   const [resetPassword, { isLoading }] = useResetPasswordMutation();
+  const [searchParams] = useSearchParams();
+  const id = searchParams.get("id");
+  const token = searchParams.get("token");
 
   const form = useForm<ResetFormData>({
     resolver: zodResolver(resetSchema),
@@ -34,13 +38,19 @@ const ResetPassword = () => {
   });
 
   const onSubmit = async (data: ResetFormData) => {
-    try {
-      await resetPassword(data).unwrap(); // call the API
-      toast.success("Password Changed Successfully!");
-      // optionally redirect to login
-      navigation("/login");
+    if (!id || !token) {
+      toast.error("Invalid or missing reset link");
+      return;
+    }
 
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    try {
+      await resetPassword({
+        id,
+        token,
+        newPassword: data.newPassword,
+      }).unwrap();
+      toast.success("Password Changed Successfully!");
+      navigation("/login");
     } catch (err: any) {
       console.error(err);
       const message = err?.data?.message || "Failed to reset password";

@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Wallet, Eye, EyeOff } from "lucide-react";
 import { useGetAgentWalletMeQuery } from "@/redux/features/wallet/walletApi";
+import { AgentWalletSkeleton } from "@/components/Loader/AgentWalletSkeleton";
 
 export function AgentWallet() {
   const [showBalance, setShowBalance] = useState(true);
@@ -15,7 +16,7 @@ export function AgentWallet() {
     isError,
   } = useGetAgentWalletMeQuery({});
 
-  if (isLoading) return <p>Loading wallet info...</p>;
+  if (isLoading) return <AgentWalletSkeleton />;
   if (isError) return <p>Error loading wallet info.</p>;
 
   const wallet = agentWalletData?.data;

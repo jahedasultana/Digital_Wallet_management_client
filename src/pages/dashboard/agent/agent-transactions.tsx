@@ -20,6 +20,7 @@ import {
 } from "@/components/ui/table";
 import { Button } from "@/components/ui/button";
 import { useGetMyTransactionsQuery } from "@/redux/features/transaction/transactionApi";
+import { AgentTransactionsSkeleton } from "@/components/Loader/AgentTransactionSceleton";
 
 // ✅ Currency formatter
 const formatCurrency = (value: number | null | undefined): string => {
@@ -78,7 +79,7 @@ export default function AgentTransactions() {
   );
 
   // ✅ Loading / Error handling
-  if (isLoading) return <p className='p-6'>Loading agent stats...</p>;
+  if (isLoading) return <AgentTransactionsSkeleton />;
   if (isError)
     return (
       <p className='p-6 text-red-500'>Failed to load stats. Try again later.</p>

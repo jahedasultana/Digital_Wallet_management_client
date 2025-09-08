@@ -8,10 +8,15 @@ import {
   Users,
 } from "lucide-react";
 import { useGetAgentStatsQuery } from "@/redux/features/stats/statsApi";
+import { AgentStatsSkeleton } from "@/components/Loader/AgentStatsLoader";
 
 export function AgentStats() {
-  const { data: agentStats } = useGetAgentStatsQuery({});
+  const { data: agentStats, isLoading } = useGetAgentStatsQuery({});
   const stats = agentStats?.data;
+
+  if (isLoading) {
+    return <AgentStatsSkeleton />;
+  }
 
   return (
     <div className='space-y-6'>

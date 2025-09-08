@@ -13,6 +13,7 @@ import {
 import { useLogoutMutation } from "@/redux/features/auth/authApi";
 import { useNavigate } from "react-router";
 import { toast } from "sonner";
+import { restartTour } from "@/config/driverConfig";
 
 interface UserMenuProps {
   user: {
@@ -70,6 +71,12 @@ export default function UserMenu({ user }: UserMenuProps) {
         <DropdownMenuItem onClick={handleLogout}>
           <LogOutIcon size={16} className='opacity-60' aria-hidden='true' />
           <span>Logout</span>
+        </DropdownMenuItem>
+
+        <DropdownMenuSeparator />
+        <DropdownMenuItem onClick={restartTour}>
+          <LogOutIcon size={16} className='opacity-60' aria-hidden='true' />
+          <span>Restart Tour</span>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

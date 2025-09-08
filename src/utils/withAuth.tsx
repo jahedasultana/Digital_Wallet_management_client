@@ -8,6 +8,16 @@ export const withAuth = (Component: ComponentType, requiredRole?: TRole) => {
     const { data, isLoading } = useGetUserInfoQuery(undefined);
     console.log("User Info:", { data, isLoading });
 
+    // If already logged in → redirect to role-based dashboard
+    if (data?.data?.email && data?.data?.role) {
+      return (
+        <Navigate
+          to={`/dashboard/${data.data.role.toLowerCase()}/stats`}
+          replace
+        />
+      );
+    }
+
     if (!isLoading && !data?.data?.email) {
       return <Navigate to='/login' />;
     }

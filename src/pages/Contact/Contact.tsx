@@ -2,17 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
-import { toast } from "sonner";
-import { useState } from "react";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Send,
-  Loader2,
-  CheckCircle,
-  AlertCircle,
-} from "lucide-react";
+
+import { Mail, Phone, MapPin, Send } from "lucide-react";
 
 import {
   Form,
@@ -35,11 +26,6 @@ type ContactFormData = {
 };
 
 const Contact = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<
-    "idle" | "success" | "error"
-  >("idle");
-
   const form = useForm<ContactFormData>({
     defaultValues: {
       name: "",
@@ -48,34 +34,6 @@ const Contact = () => {
       message: "",
     },
   });
-
-  const onSubmit = async (data: ContactFormData) => {
-    setIsSubmitting(true);
-    setSubmitStatus("idle");
-
-    try {
-      // TODO: Replace with actual API call
-      // const response = await fetch('/api/contact', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify(data),
-      // });
-
-      // Simulate API call
-      await new Promise((resolve) => setTimeout(resolve, 2000));
-
-      console.log("[v0] Contact form data:", data);
-      setSubmitStatus("success");
-      toast.success("Your message has been sent successfully!");
-      form.reset();
-    } catch (error) {
-      console.error("[v0] Contact form error:", error);
-      setSubmitStatus("error");
-      toast.error("Failed to send message. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const contactMethods = [
     {
@@ -131,6 +89,7 @@ const Contact = () => {
 
       <div className='max-w-6xl mx-auto px-6 md:px-12 py-16'>
         <div className='grid lg:grid-cols-2 gap-12'>
+          {/* Contact Form */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -150,11 +109,16 @@ const Contact = () => {
 
                 <Form {...form}>
                   <form
-                    onSubmit={form.handleSubmit(onSubmit)}
                     className='flex flex-col gap-6'
                     noValidate
                     aria-label='Contact form'
+                    action={`https://formbold.com/s/${
+                      import.meta.env.VITE_FORM_BOLD
+                    }`}
+                    method='POST'
+                    encType='multipart/form-data'
                   >
+                    {/* Full Name */}
                     <FormField
                       control={form.control}
                       name='name'
@@ -174,7 +138,6 @@ const Contact = () => {
                             <Input
                               placeholder='Enter your full name'
                               {...field}
-                              disabled={isSubmitting}
                               aria-describedby={
                                 form.formState.errors.name
                                   ? `name-error`
@@ -188,6 +151,7 @@ const Contact = () => {
                       )}
                     />
 
+                    {/* Email */}
                     <FormField
                       control={form.control}
                       name='email'
@@ -208,7 +172,6 @@ const Contact = () => {
                               type='email'
                               placeholder='your@email.com'
                               {...field}
-                              disabled={isSubmitting}
                               aria-describedby={
                                 form.formState.errors.email
                                   ? `email-error`
@@ -222,6 +185,7 @@ const Contact = () => {
                       )}
                     />
 
+                    {/* Subject */}
                     <FormField
                       control={form.control}
                       name='subject'
@@ -241,7 +205,6 @@ const Contact = () => {
                             <Input
                               placeholder='What is this regarding?'
                               {...field}
-                              disabled={isSubmitting}
                               aria-describedby={
                                 form.formState.errors.subject
                                   ? `subject-error`
@@ -255,6 +218,7 @@ const Contact = () => {
                       )}
                     />
 
+                    {/* Message */}
                     <FormField
                       control={form.control}
                       name='message'
@@ -275,7 +239,6 @@ const Contact = () => {
                               rows={5}
                               placeholder='Tell us more about your inquiry...'
                               {...field}
-                              disabled={isSubmitting}
                               aria-describedby={
                                 form.formState.errors.message
                                   ? `message-error`
@@ -289,64 +252,23 @@ const Contact = () => {
                       )}
                     />
 
+                    {/* Submit */}
                     <Button
                       type='submit'
                       size='lg'
-                      disabled={isSubmitting}
                       className='bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 focus:ring-2 focus:ring-rose-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none'
                       aria-describedby='submit-status'
                     >
-                      {isSubmitting ? (
-                        <>
-                          <Loader2 className='w-4 h-4 mr-2 animate-spin' />
-                          Sending Message...
-                        </>
-                      ) : (
-                        <>
-                          <Send className='w-4 h-4 mr-2' />
-                          Send Message
-                        </>
-                      )}
+                      <Send className='w-4 h-4 mr-2' />
+                      Send Message
                     </Button>
-
-                    {submitStatus === "success" && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className='flex items-center gap-2 text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-900/20 p-3 rounded-lg'
-                        id='submit-status'
-                        role='status'
-                        aria-live='polite'
-                      >
-                        <CheckCircle className='w-5 h-5' />
-                        <span>
-                          Message sent successfully! We'll get back to you soon.
-                        </span>
-                      </motion.div>
-                    )}
-
-                    {submitStatus === "error" && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className='flex items-center gap-2 text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-900/20 p-3 rounded-lg'
-                        id='submit-status'
-                        role='alert'
-                        aria-live='assertive'
-                      >
-                        <AlertCircle className='w-5 h-5' />
-                        <span>
-                          Failed to send message. Please try again or contact us
-                          directly.
-                        </span>
-                      </motion.div>
-                    )}
                   </form>
                 </Form>
               </CardContent>
             </Card>
           </motion.div>
 
+          {/* Contact Info */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}

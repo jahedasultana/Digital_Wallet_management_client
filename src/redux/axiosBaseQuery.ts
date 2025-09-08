@@ -14,15 +14,26 @@ const axiosBaseQuery =
     unknown,
     unknown
   > =>
-  async ({ url, method, data, params, headers }) => {
+  async ({ url, method = "GET", data, params, headers }) => {
     try {
+      // 🔑 Get accessToken from cookies
+      const cookieToken = document.cookie
+        .split("; ")
+        .find((row) => row.startsWith("accessToken="))
+        ?.split("=")[1];
+
       const result = await axiosInstance({
-        url: url,
+        url,
         method,
         data,
         params,
-        headers,
+        headers: {
+          ...(headers || {}),
+          ...(cookieToken ? { Authorization: `${cookieToken}` } : {}),
+        },
+        withCredentials: true, // important for cookie-based auth
       });
+
       return { data: result.data };
     } catch (axiosError) {
       const err = axiosError as AxiosError;

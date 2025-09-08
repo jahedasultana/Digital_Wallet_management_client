@@ -60,6 +60,13 @@ export const walletApi = baseApi.injectEndpoints({
       }),
       providesTags: ["WALLET"],
     }),
+
+    updateWalletStatus: builder.mutation({
+      query: ({ walletId, status }) => ({
+        url: `/wallet/admin/${walletId}/${status}`,
+        method: "PATCH",
+      }),
+    }),
   }),
 });
 
@@ -71,4 +78,5 @@ export const {
   useSendMoneyMutation,
   useGetAllWalletsQuery,
   useGetAdminWalletStatsQuery,
+  useUpdateWalletStatusMutation,
 } = walletApi;
