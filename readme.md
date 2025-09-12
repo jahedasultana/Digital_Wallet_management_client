@@ -1,298 +1,132 @@
-# 💳 Digital Wallet Management System (DWMS)
+# PaySphere Fullstack Project 
 
-A **full-stack, role-based Digital Wallet solution** built to simulate real-world e-wallet platforms like **bKash** or **Nagad**.  
-The platform allows **Users, Agents, and Admins** to interact securely — from sending/withdrawing money to managing wallets, agents, and transactions.
+**PaySphere** is a fullstack digital wallet application fully implemented in **TypeScript**, providing **secure, role-based access** for Users, Agents, and Admins. The frontend is built with **React.js + TypeScript**, **Redux Toolkit**, and **RTK Query**, while the backend uses **Node.js/Express + TypeScript**, **MongoDB**, and **JWT** authentication.
 
-This project showcases **modern frontend engineering, robust backend APIs, and professional-grade UI/UX**.
-
----
-
-## 🌐 Live Applications
-
-- **Frontend (React + Redux Toolkit + RTK Query):**  
-  👉 [https://dream-wallet-steel.vercel.app](https://dream-wallet-steel.vercel.app)
-
-- **Backend API (Node.js + Express + MongoDB):**  
-  👉 [https://digital-wallet-management-system-kappa.vercel.app](https://digital-wallet-management-system-kappa.vercel.app)
+This project simulates real-world wallet operations similar to bKash or Nagad, including deposits, withdrawals, money transfers, and transaction history management.
 
 ---
 
-## 📂 GitHub Repositories
+## 🔗 Live Link
 
-- 🖥️ **Frontend Repo:** [dream-wallet-frontend](https://github.com/Sarwarhridoy4/dream-wallet-frontend)
-- ⚙️ **Backend Repo:** [Digital_Wallet_Management_System](https://github.com/Sarwarhridoy4/Digital_Wallet_Management_System)
-
----
-
-## 🔑 Demo Credentials
-
-| Role  | Email             | Password              |
-| ----- | ----------------- | --------------------- |
-| Admin | admin@example.com | supersecurepassword   |
-| Agent | agent@example.com | supersecurepassworD@1 |
-| User  | user@example.com  | supersecurepassworD@0 |
+* **Frontend**: [https://paysphere-client.vercel.app](https://paysphere-client.vercel.app) 
+* **Backend**: [https://pay-sphere-server.vercel.app](https://pay-sphere-server.vercel.app)
+* **Backend Repository**: [https://github.com/imam0321/PaySphere-server](https://github.com/imam0321/PaySphere-server)
 
 ---
 
-## 📖 System Overview
+## 🚀 Project Overview
 
-The **Digital Wallet Management System (DWMS)** is designed to:
-
-- Provide a **public landing platform** for visitors
-- Implement **role-based dashboards** tailored for **User, Agent, Admin**
-- Ensure **secure financial operations** (deposit, withdraw, send money, commission)
-- Deliver **responsive, intuitive UI/UX** with modern tooling
-- Enable **system-wide monitoring & management** via Admin
-
----
-
-## 👥 System Roles & Use Cases
-
-### 👤 User
-
-- Deposit money (via Agent cash-in simulation)
-- Withdraw money (via Agent cash-out simulation)
-- Send money to another User (via phone/email lookup)
-- Manage wallet, transactions, and personal profile
-
-### 🏦 Agent
-
-- Perform **Cash-in / Cash-out** for users
-- Maintain transaction logs & commission tracking
-- Manage personal profile
-
-### 🛡️ Admin
-
-- View global system stats (users, agents, wallets, transactions)
-- Approve / suspend Agents
-- Block / unblock Users
-- Adjust system-level fees (optional)
-- Audit all transactions with advanced filters
+* **Role-Based Dashboards**: Different interfaces and capabilities for Users, Agents, and Admins.
+* **Wallet Operations**: Deposit, withdraw, send money, and view transaction history.
+* **Authentication & Authorization**: JWT-based login and registration with role selection.
+* **Data Management**: Efficient state handling using Redux Toolkit and RTK Query.
+* **Responsive Design**: Mobile-first UI using Tailwind CSS.
+* **Admin Controls**: Manage users, agents, transactions, and system settings.
 
 ---
 
-## 🔒 Security Features
+## 🧱 Tech Stack
 
-- **JWT Authentication** (access & refresh tokens)
-- **Role-based access control** (Admin, Agent, User)
-- **Password hashing** with bcrypt
-- **Route protection** on frontend & backend
-- **Secure API consumption** with RTK Query interceptors
-- **Cloudinary integration** for secure KYC & profile uploads
+* **Frontend**: React.js + TypeScript, Redux Toolkit, RTK Query, Tailwind CSS
+* **Backend**: Node.js + TypeScript, Express, MongoDB, Mongoose, JWT, bcrypt
+* **Development Tools**: Vite, ESLint, Prettier, Postman (API testing)
 
 ---
 
-## 📊 Feature Checklist
-
-| Feature                                                       | Status |
-| ------------------------------------------------------------- | :----: |
-| Public Landing (Home, About, Features, FAQ, Contact, Pricing) |   ✅   |
-| Authentication (Register/Login/Forgot/Reset)                  |   ✅   |
-| Role-based Dashboards (User, Agent, Admin)                    |   ✅   |
-| User Wallet (deposit, withdraw, send)                         |   ✅   |
-| Agent Cash-in / Cash-out                                      |   ✅   |
-| Admin Manage Users/Agents/Wallets                             |   ✅   |
-| Transaction History (pagination + filters)                    |   ✅   |
-| Data Visualization (cards, charts, tables)                    |   ✅   |
-| Guided Tour (Driver.js, 5+ steps)                             |   ✅   |
-| Dark/Light Theme Toggle                                       |   ✅   |
-| Toast Notifications                                           |   ✅   |
-| Loading Skeletons                                             |   ✅   |
-| Accessibility & Responsive Design                             |   ✅   |
-
----
-
-## 🛠️ Tech Stack
+## 📦 Installation & Setup
 
 ### Frontend
 
-- React (Vite + TypeScript)
-- Redux Toolkit + RTK Query
-- Tailwind CSS + ShadCN/UI + Lucide Icons
-- Driver.js (guided tours)
+1. Clone the frontend repository:
+
+   ```bash
+   git clone https://github.com/imam0321/paysphere-client.git
+   cd paysphere-client
+   bun install
+   bun run dev
+   ```
+
+   Frontend runs on [http://localhost:3000](http://localhost:3000)
 
 ### Backend
 
-- Node.js + Express.js
-- MongoDB + Mongoose
-- JWT + bcrypt for security
-- Cloudinary (image storage for profile/KYC)
+1. Clone the backend repository:
 
-### Deployment
+   ```bash
+   git clone https://github.com/imam0321/PaySphere-server.git
+   cd PaySphere-server
+   bun install
+   bun run dev
+   ```
 
-- Vercel (Frontend & Backend)
+   Backend runs on [http://localhost:5000](http://localhost:5000) by default.
 
----
-
-## 🗂️ Project Structure
-
-### Frontend
-
-```
-
-src/
-├── components/ # UI & reusable components
-├── contexts/ # Role & theme providers
-├── hooks/ # Custom React hooks
-├── layouts/ # Dashboard & main layouts
-├── pages/ # Public & private pages
-├── redux/ # RTK store & APIs
-├── routes/ # App routes
-└── utils/ # Auth & helper utilities
-
-```
-
-### Backend
-
-```
-
-src/
-├── config/ # DB, Cloudinary, JWT configs
-├── controllers/ # Request handlers
-├── middlewares/ # Auth & role-based guards
-├── models/ # Mongoose schemas
-├── routes/ # API routes
-├── services/ # Business logic
-└── utils/ # Helpers & validators
-
-```
+2. Configure `.env` with your MongoDB URI and JWT secret.
 
 ---
 
-## ⚡ Setup Instructions
+## 🧪 Features & Functionalities
 
-### 🔹 Frontend
+### Public Landing Pages
 
-```bash
-git clone https://github.com/Sarwarhridoy4/dream-wallet-frontend.git
-cd dream-wallet-frontend
-npm install
-```
+* Home, About, Features, Contact, FAQ
+* Responsive design with navigation bar, hero banner, and footer
 
-Create `.env`:
+### Authentication
 
-```env
-VITE_API_URL=https://digital-wallet-management-system-kappa.vercel.app/api
-```
+* Registration and login with JWT
+* Role-based redirection (User, Agent, Admin)
+* Persisted sessions and logout functionality
 
-Run locally:
+### User Dashboard
 
-```bash
-npm run dev
-```
+* Wallet balance overview
+* Deposit, withdraw, and send money functionality
+* Transaction history with filtering and pagination
+* Profile management (update name, phone, password)
 
-### 🔹 Backend
+### Agent Dashboard
 
-```bash
-git clone https://github.com/Sarwarhridoy4/Digital_Wallet_Management_System.git
-cd Digital_Wallet_Management_System
-npm install
-```
+* Overview of cash-in/out operations
+* Transaction history handled by agents
+* Profile management
 
-Create `.env`:
+### Admin Dashboard
 
-```env
-PORT=5000
-MONGO_URI=your_mongodb_uri
-JWT_SECRET=your_jwt_secret
-CLOUDINARY_CLOUD_NAME=xxx
-CLOUDINARY_API_KEY=xxx
-CLOUDINARY_API_SECRET=xxx
-```
+* Overview of total users, agents, transactions, and volume
 
-Run locally:
+* Manage users and agents (approve, suspend, block/unblock)
 
-```bash
-npm run dev
-```
+* View and filter all transactions
+
+* Profile management
+
+### General Features
+
+* Role-based navigation
+* Loading indicators and global error handling
+* Form validations and toast notifications
+* Data visualization with cards, charts, and tables
+* Fully responsive design
+
 
 ---
 
-## 🧩 Architecture Diagram
+## 🧪 Test Credentials
 
-```
-[Frontend: React + RTK Query]
-        |
-        v
-[Backend API: Express.js]
-        |
-        v
-[MongoDB Database]  <---->  [Cloudinary Media Storage]
-```
+Use the following accounts to test the application:
+
+| Role  | Email                                                  | Password  |
+| ----- | ---------------------------------------------------    | --------  |
+| User  | [imam.hossain0321@gmail.com](mailto:devsafix@gmail.com)| 123456789 |
+| Agent | [tom@gmail.com](mailto:demodriver@gmail.com)           | 123456789 |
+| Admin | [admin@gmail.com](mailto:admin@ride.com)               | 123456789 |
 
 ---
 
-## 📸 Screenshots (Placeholders)
 
-- 🏠 Landing Page
-- 🔑 Authentication (Login/Register)
-- 👤 User Dashboard
-- 🏦 Agent Dashboard
-- 🛡️ Admin Dashboard
+## 📧 Contact
 
-_(Insert screenshots or GIFs here)_
+* Email: [imam.hossain0321@example.com](mailto:imam0321@example.com)
 
----
 
-## 🎥 Demo Video
-
-📹 A short 5–10 minute walkthrough demonstrating:
-
-- Registration/Login (all roles)
-- Wallet operations (deposit, withdraw, send money)
-- Transaction history + filtering
-- Admin/Agent management features
-
-_(Insert video link here)_
-
----
-
-## 📌 Roadmap
-
-- [x] Role-based dashboards
-- [x] Authentication & authorization
-- [x] Transactions (cash-in/out, send money)
-- [x] Guided tour with Driver.js
-- [ ] Multi-language support
-- [ ] Real-time notifications (Socket.io)
-- [ ] AI-powered fraud detection (future scope)
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome!
-
-1. Fork the repo
-2. Create a branch (`git checkout -b feature-name`)
-3. Commit (`git commit -m "add new feature"`)
-4. Push & open PR
-
----
-
-## 📜 License
-
-Licensed under the **MIT License**.
-
----
-
-## 👨‍💻 Author
-
-**Sarwar Hossain**
-
-- 🔗 [GitHub](https://github.com/Sarwarhridoy4)
-- 🔗 [LinkedIn](#)
-- 🔗 [Portfolio](#)
-
-```
-
----
-
-✨ This version is **professional-grade**:
-- Reads like a **project report** (good for submissions & portfolios)
-- Documents **requirements, features, roles, security, setup, architecture, roadmap**
-- Has placeholders for **screenshots & demo video**
-
-Would you like me to also **design the screenshots placeholders into a real screenshot grid** (markdown tables with image preview slots), so your README looks polished even before you upload images?
-
-```
