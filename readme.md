@@ -118,7 +118,7 @@ Use the following accounts to test the application:
 
 | Role  | Email                                                  | Password  |
 | ----- | ---------------------------------------------------    | --------  |
-| User  | [user@gmail.com](mailto:user@gmail.com)                | Abc123@@ |
+| User  | [user@example.com](mailto:user@example.com)                | Abc123@@ |
 | Agent | [agent@gmail.com](mailto:agent@gmail.com)              | Abc123@@ |
 | Admin | [admin@example.com](mailto:admin@example.com)          | supersecurepassword |
 

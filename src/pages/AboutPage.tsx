@@ -7,10 +7,10 @@ export default function AboutPage() {
         <div className="max-w-3xl mx-auto space-y-6">
           <h1 className="text-4xl font-bold">About TrustPay</h1>
           <p className="text-lg text-muted-foreground">
-            TrustPay is a modern digital wallet designed to make sending,
-            receiving, and managing money effortless and secure. Our platform
-            serves users, agents, and admins with tailored dashboards and
-            features.
+            TrustPay is a secure and user-friendly digital wallet that makes
+            everyday payments simple. From sending and receiving money to paying
+            bills and managing transactions, TrustPay helps you stay in control
+            of your finances anytime, anywhere.
           </p>
           <div className="grid gap-6">
             <Card className="rounded-3xl">
@@ -18,8 +18,8 @@ export default function AboutPage() {
                 <CardTitle>Our Mission</CardTitle>
               </CardHeader>
               <CardContent>
-                To empower everyone with a fast, reliable, and secure digital
-                wallet experience.
+                To provide people with a seamless way to store, transfer, and
+                access money digitally with complete trust and transparency.
               </CardContent>
             </Card>
             <Card className="rounded-3xl">
@@ -27,8 +27,9 @@ export default function AboutPage() {
                 <CardTitle>Our Vision</CardTitle>
               </CardHeader>
               <CardContent>
-                To become the leading platform for digital finance solutions
-                across multiple countries.
+                To revolutionize financial transactions by becoming the most
+                trusted digital wallet, empowering users and businesses across
+                the globe.
               </CardContent>
             </Card>
           </div>
