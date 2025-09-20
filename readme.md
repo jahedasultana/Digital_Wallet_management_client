@@ -8,9 +8,9 @@ This project simulates real-world wallet operations similar to bKash or Nagad, i
 
 ## 🔗 Live Link
 
-* **Frontend**: [https://TrustPay-client.vercel.app](https://TrustPay-client.vercel.app) 
-* **Backend**: [https://pay-sphere-server.vercel.app](https://pay-sphere-server.vercel.app)
-* **Backend Repository**: [https://github.com/imam0321/TrustPay-server](https://github.com/imam0321/TrustPay-server)
+* **Frontend**: [https://digital-wallet-management-client.vercel.app](https://digital-wallet-management-client.vercel.app) 
+* **Backend**: [https://digital-wallet-management-system-delta.vercel.app](https://digital-wallet-management-system-delta.vercel.app)
+* **Frontend Repository**: [https://github.com/jahedasultana/Digital_Wallet_management_client](https://github.com/jahedasultana/Digital_Wallet_management_client)
 
 ---
 
@@ -40,7 +40,7 @@ This project simulates real-world wallet operations similar to bKash or Nagad, i
 1. Clone the frontend repository:
 
    ```bash
-   git clone https://github.com/imam0321/TrustPay-client.git
+   git clone https://github.com/jahedasultana/Digital_Wallet_management_client.git
    cd TrustPay-client
    bun install
    bun run dev
@@ -53,7 +53,7 @@ This project simulates real-world wallet operations similar to bKash or Nagad, i
 1. Clone the backend repository:
 
    ```bash
-   git clone https://github.com/imam0321/TrustPay-server.git
+   git clone https://github.com/jahedasultana/Digital_Wallet_Management_System.git
    cd TrustPay-server
    bun install
    bun run dev
@@ -118,15 +118,15 @@ Use the following accounts to test the application:
 
 | Role  | Email                                                  | Password  |
 | ----- | ---------------------------------------------------    | --------  |
-| User  | [imam.hossain0321@gmail.com](mailto:devsafix@gmail.com)| 123456789 |
-| Agent | [tom@gmail.com](mailto:demodriver@gmail.com)           | 123456789 |
-| Admin | [admin@gmail.com](mailto:admin@ride.com)               | 123456789 |
+| User  | [user@gmail.com](mailto:user@gmail.com)                | Abc123@@ |
+| Agent | [agent@gmail.com](mailto:agent@gmail.com)              | Abc123@@ |
+| Admin | [admin@example.com](mailto:admin@example.com)          | supersecurepassword |
 
 ---
 
 
 ## 📧 Contact
 
-* Email: [imam.hossain0321@example.com](mailto:imam0321@example.com)
+* Email: [jahedasultana47@gmail.com](mailto:jahedasultana47@gmail.com)
 
 
