@@ -1,6 +1,6 @@
-# PaySphere Fullstack Project 
+# TrustPay Fullstack Project 
 
-**PaySphere** is a fullstack digital wallet application fully implemented in **TypeScript**, providing **secure, role-based access** for Users, Agents, and Admins. The frontend is built with **React.js + TypeScript**, **Redux Toolkit**, and **RTK Query**, while the backend uses **Node.js/Express + TypeScript**, **MongoDB**, and **JWT** authentication.
+**TrustPay** is a fullstack digital wallet application fully implemented in **TypeScript**, providing **secure, role-based access** for Users, Agents, and Admins. The frontend is built with **React.js + TypeScript**, **Redux Toolkit**, and **RTK Query**, while the backend uses **Node.js/Express + TypeScript**, **MongoDB**, and **JWT** authentication.
 
 This project simulates real-world wallet operations similar to bKash or Nagad, including deposits, withdrawals, money transfers, and transaction history management.
 
@@ -8,9 +8,9 @@ This project simulates real-world wallet operations similar to bKash or Nagad, i
 
 ## 🔗 Live Link
 
-* **Frontend**: [https://paysphere-client.vercel.app](https://paysphere-client.vercel.app) 
+* **Frontend**: [https://TrustPay-client.vercel.app](https://TrustPay-client.vercel.app) 
 * **Backend**: [https://pay-sphere-server.vercel.app](https://pay-sphere-server.vercel.app)
-* **Backend Repository**: [https://github.com/imam0321/PaySphere-server](https://github.com/imam0321/PaySphere-server)
+* **Backend Repository**: [https://github.com/imam0321/TrustPay-server](https://github.com/imam0321/TrustPay-server)
 
 ---
 
@@ -40,8 +40,8 @@ This project simulates real-world wallet operations similar to bKash or Nagad, i
 1. Clone the frontend repository:
 
    ```bash
-   git clone https://github.com/imam0321/paysphere-client.git
-   cd paysphere-client
+   git clone https://github.com/imam0321/TrustPay-client.git
+   cd TrustPay-client
    bun install
    bun run dev
    ```
@@ -53,8 +53,8 @@ This project simulates real-world wallet operations similar to bKash or Nagad, i
 1. Clone the backend repository:
 
    ```bash
-   git clone https://github.com/imam0321/PaySphere-server.git
-   cd PaySphere-server
+   git clone https://github.com/imam0321/TrustPay-server.git
+   cd TrustPay-server
    bun install
    bun run dev
    ```

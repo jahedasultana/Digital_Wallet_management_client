@@ -100,7 +100,7 @@ export default function Footer() {
           <div className="text-sm space-y-3">
             <div className="space-y-2">
               <div className="font-medium mb-2">Contact Us</div>
-              <p className="text-muted-foreground">support@paysphere.com</p>
+              <p className="text-muted-foreground">support@TrustPay.com</p>
               <p className="text-muted-foreground">+880 1234-567890</p>
               <p className="text-muted-foreground">Dhaka, Bangladesh</p>
             </div>
@@ -111,7 +111,7 @@ export default function Footer() {
         <Separator className="my-6" />
         <div className="text-xs text-muted-foreground flex flex-wrap items-center justify-between gap-2">
           <span>
-            © {new Date().getFullYear()} PaySphere. All rights reserved.
+            © {new Date().getFullYear()} TrustPay. All rights reserved.
           </span>
           <div className="flex gap-4">
             <Link to="/privacy" onClick={() => window.scrollTo(0, 0)}>

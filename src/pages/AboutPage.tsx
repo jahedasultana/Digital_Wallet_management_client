@@ -5,9 +5,9 @@ export default function AboutPage() {
     <div className="min-h-screen flex flex-col">
       <main className="flex-1 py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto space-y-6">
-          <h1 className="text-4xl font-bold">About PaySphere</h1>
+          <h1 className="text-4xl font-bold">About TrustPay</h1>
           <p className="text-lg text-muted-foreground">
-            PaySphere is a modern digital wallet designed to make sending,
+            TrustPay is a modern digital wallet designed to make sending,
             receiving, and managing money effortless and secure. Our platform
             serves users, agents, and admins with tailored dashboards and
             features.

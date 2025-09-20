@@ -3,7 +3,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 export default function Faq() {
   const faqs = [
     {
-      q: "How secure is PaySphere?",
+      q: "How secure is TrustPay?",
       a: "We use JWT-based auth, hashed passwords, and role-based permissions. Your data is encrypted in transit.",
     },
     {
