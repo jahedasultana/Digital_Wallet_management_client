@@ -1,9 +1,9 @@
-import { lazy } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ShieldCheck, Users, Zap } from "lucide-react";
 import { motion } from "framer-motion";
-const WalletPage = lazy(() => import('@/pages/WalletPage'));
+import img from "../../../assets/images/wallet.png";
+
 
 export default function Hero() {
   return (
@@ -14,7 +14,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8 }} 
             className="space-y-6"
           >
             <Badge className="rounded-full">Secure • Fast • Reliable</Badge>
@@ -47,7 +47,7 @@ export default function Hero() {
               </div>
             </div>
           </motion.div>
-          <WalletPage />
+         <img src={img} alt="" />
         </div>
       </div>
     </section>
