@@ -20,7 +20,7 @@ export default function Hero() {
             <Badge className="rounded-full">Secure • Fast • Reliable</Badge>
             <h1 className="text-4xl sm:text-5xl font-bold leading-tight tracking-tight">
               Your all‑in‑one{" "}
-              <span className="bg-gradient-to-r from-fuchsia-600 to-violet-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-pink-600 to-pink-300 bg-clip-text text-transparent">
                 digital wallet
               </span>
             </h1>
