@@ -12,9 +12,6 @@ import { ModeToggle } from "./mode.toggle";
 import {
   Sheet,
   SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "../ui/sheet";
 import { Button } from "../ui/button";
@@ -31,7 +28,6 @@ import { useAppDispatch } from "@/redux/hooks";
 import { role } from "@/constants/role";
 import LogoutButton from "../modules/Authentication/LogoutButton";
 import { toast } from "sonner";
-import { Skeleton } from "../ui/skeleton";
 
 const navLinks = [
   { to: "/", label: "Home", role: "PUBLIC" },
@@ -93,10 +89,6 @@ export default function Navbar() {
                       <NavigationMenuLink asChild>
                         <NavLink
                           to={link.to}
-                          onClick={() => {
-                            setOpen(false);
-                          }}
-                          replace={true}
                           className="text-foreground hover:text-primary flex-row items-center gap-2 py-1.5 font-medium"
                         >
                           {link.label}
@@ -111,7 +103,7 @@ export default function Navbar() {
               
               {/* Services Mega Menu */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-foreground cursor-pointer  hover:text-primary font-medium">
+                <NavigationMenuTrigger className="text-foreground cursor-pointer hover:text-primary font-medium">
                   Services
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -136,8 +128,34 @@ export default function Navbar() {
           </NavigationMenu>
         </div>
 
+        {/* Desktop Auth Buttons */}
+        <div className="hidden md:flex items-center gap-3">
+          <ModeToggle />
+          {isLoading && (
+            <div className="w-5 h-5 border-2 border-gray-300 border-t-primary rounded-full animate-spin"></div>
+          )}
+          {!isLoading && data?.email && (
+            <LogoutButton onLogout={handleLogout} />
+          )}
+          {!isLoading && !data?.email && (
+            <>
+              <Link to="/login">
+                <Button variant="ghost" className="rounded-2xl">
+                  Login
+                </Button>
+              </Link>
+              <Link to="/user/register">
+                <Button className="rounded-2xl bg-gradient-to-r from-pink-600 to-orange-500 hover:from-pink-700 hover:to-orange-600 text-white border-0">
+                  Get Started
+                </Button>
+              </Link>
+            </>
+          )}
+        </div>
+
         {/* Mobile Navigation */}
         <div className="md:hidden flex items-center gap-2">
+          <ModeToggle />
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger asChild>
               <Button
@@ -149,7 +167,6 @@ export default function Navbar() {
                 <Menu className="h-6 w-6" />
               </Button>
             </SheetTrigger>
-            <ModeToggle />
             <SheetContent side="right" className="w-72">
               <div className="mt-6 space-y-2">
                 <NavigationMenu>
@@ -165,10 +182,7 @@ export default function Navbar() {
                             <NavigationMenuLink asChild>
                               <NavLink
                                 to={link.to}
-                                onClick={() => {
-                                  setOpen(false);
-                                }}
-                                replace={true}
+                                onClick={() => setOpen(false)}
                                 className="text-foreground hover:text-primary flex-row items-center gap-2 py-1.5 font-medium"
                               >
                                 {link.label}
@@ -183,7 +197,7 @@ export default function Navbar() {
                     
                     {/* Mobile Services Menu */}
                     <NavigationMenuItem>
-                      <div className="text-foreground  font-medium py-1.5 flex items-center gap-2">
+                      <div className="text-foreground font-medium py-1.5 flex items-center gap-2">
                         Services
                         <ChevronDown className="h-4 w-4" />
                       </div>
@@ -210,9 +224,6 @@ export default function Navbar() {
                 {isLoading && (
                   <div className="w-5 h-5 border-2 border-gray-300 border-t-primary rounded-full animate-spin"></div>
                 )}
-                {/* {!isLoading && data?.email && (
-                  
-                )} */}
                 {!isLoading && data?.email && (
                   <LogoutButton onLogout={handleLogout} />
                 )}
@@ -222,50 +233,15 @@ export default function Navbar() {
                       <Button className="w-full rounded-2xl">Login</Button>
                     </Link>
                     <Link to="/user/register" onClick={() => setOpen(false)}>
-                      <Button
-                        variant="secondary"
-                        className="w-full rounded-2xl"
-                      >
-                        Create account
+                      <Button variant="outline" className="w-full rounded-2xl">
+                        Register
                       </Button>
                     </Link>
                   </>
                 )}
               </div>
-
-              <SheetHeader className="sr-only">
-                <SheetTitle>Navbar</SheetTitle>
-                <SheetDescription>Navbar</SheetDescription>
-              </SheetHeader>
             </SheetContent>
           </Sheet>
-        </div>
-
-        {/* Desktop Auth Buttons */}
-        <div className="hidden md:flex items-center gap-2 min-w-[160px]">
-          {!isLoading ? (
-            data?.email ? (
-              <LogoutButton onLogout={handleLogout} />
-            ) : (
-              <>
-                <Link to="/login">
-                  <Button variant="outline" className="rounded-2xl">
-                    Login
-                  </Button>
-                </Link>
-                <Link to="/register/user">
-                  <Button className="rounded-2xl">Sign up</Button>
-                </Link>
-              </>
-            )
-          ) : (
-            // Placeholder box same size as buttons
-            <div className="flex items-center gap-2">
-              <Skeleton className="h-8 w-[4.7rem] rounded-2xl animate-pulse"/>
-              <Skeleton className="h-8 w-[4.7rem] rounded-2xl animate-pulse"/>
-            </div>
-          )}
-          <ModeToggle />
         </div>
       </div>
     </header>

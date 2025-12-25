@@ -1,0 +1,52 @@
+<svg width="400" height="300" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="shieldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ec4899"/>
+      <stop offset="100%" style="stop-color:#f97316"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="200" cy="150" r="120" fill="url(#shieldGradient)" opacity="0.1"/>
+  
+  <!-- Main Shield -->
+  <path d="M200 50 L160 70 L160 140 Q160 180 200 220 Q240 180 240 140 L240 70 Z" 
+        fill="url(#shieldGradient)" filter="url(#glow)"/>
+  
+  <!-- Shield Inner -->
+  <path d="M200 70 L175 85 L175 135 Q175 165 200 190 Q225 165 225 135 L225 85 Z" 
+        fill="white" opacity="0.9"/>
+  
+  <!-- Checkmark -->
+  <path d="M185 130 L195 140 L215 115" stroke="url(#shieldGradient)" 
+        stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  
+  <!-- Floating Elements -->
+  <circle cx="120" cy="100" r="8" fill="#ec4899" opacity="0.3">
+    <animate attributeName="cy" values="100;90;100" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="280" cy="120" r="6" fill="#f97316" opacity="0.4">
+    <animate attributeName="cy" values="120;110;120" dur="2.5s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="150" cy="220" r="5" fill="#8b5cf6" opacity="0.3">
+    <animate attributeName="cy" values="220;210;220" dur="3.5s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Lock Icons -->
+  <g transform="translate(100, 180)">
+    <rect x="0" y="8" width="16" height="12" rx="2" fill="#ec4899" opacity="0.6"/>
+    <path d="M4 8 V6 Q4 3 8 3 Q12 3 12 6 V8" stroke="#ec4899" stroke-width="1.5" fill="none"/>
+  </g>
+  
+  <g transform="translate(284, 200)">
+    <rect x="0" y="8" width="16" height="12" rx="2" fill="#f97316" opacity="0.6"/>
+    <path d="M4 8 V6 Q4 3 8 3 Q12 3 12 6 V8" stroke="#f97316" stroke-width="1.5" fill="none"/>
+  </g>
+</svg>
