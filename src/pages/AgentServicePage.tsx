@@ -2,8 +2,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { UserCheck, BarChart3, Settings, Zap, CheckCircle, TrendingUp } from "lucide-react";
+import { useNavigate } from "react-router";
 
 export default function AgentServicePage() {
+  const navigate = useNavigate();
+  
   const services = [
     {
       icon: <UserCheck className="h-8 w-8 text-blue-600" />,
@@ -112,8 +115,8 @@ export default function AgentServicePage() {
             Join our network of successful agents and start earning with our comprehensive platform. 
             Get access to exclusive tools and dedicated support.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="rounded-2xl">
+          <div className="flex flex-col sm:flex-row gap-4  justify-center">
+            <Button size="lg" variant="secondary" className="rounded-2xl cursor-pointer" onClick={() => navigate('/register/agent')}>
               Apply Now
             </Button>
            

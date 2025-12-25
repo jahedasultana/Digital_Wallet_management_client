@@ -111,7 +111,7 @@ export default function Navbar() {
               
               {/* Services Mega Menu */}
               <NavigationMenuItem>
-                <NavigationMenuTrigger className="text-foreground hover:text-primary font-medium">
+                <NavigationMenuTrigger className="text-foreground cursor-pointer  hover:text-primary font-medium">
                   Services
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
@@ -183,7 +183,7 @@ export default function Navbar() {
                     
                     {/* Mobile Services Menu */}
                     <NavigationMenuItem>
-                      <div className="text-foreground font-medium py-1.5 flex items-center gap-2">
+                      <div className="text-foreground  font-medium py-1.5 flex items-center gap-2">
                         Services
                         <ChevronDown className="h-4 w-4" />
                       </div>

@@ -2,8 +2,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Users, Shield, CreditCard, Headphones, Clock, CheckCircle } from "lucide-react";
+import { useNavigate } from "react-router";
 
 export default function UserServicePage() {
+  const navigate = useNavigate();
+  
   const services = [
     {
       icon: <CreditCard className="h-8 w-8 text-blue-600" />,
@@ -85,7 +88,7 @@ export default function UserServicePage() {
             Join thousands of satisfied users who trust our platform for their digital wallet needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="rounded-2xl">
+            <Button size="lg" className="rounded-2xl cursor-pointer " onClick={() => navigate('/register/user')}>
               Create Account
             </Button>
            

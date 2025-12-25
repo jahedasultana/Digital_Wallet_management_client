@@ -2,8 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router";
 
 export default function CallToAction() {
+  const navigate = useNavigate();
+
   return (
     <section className="py-16 sm:py-24 relative overflow-hidden">
       <div className="absolute -z-10 inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-fuchsia-200/30 via-background to-transparent dark:from-fuchsia-900/20" />
@@ -63,7 +66,8 @@ export default function CallToAction() {
               >
                 <Button 
                   size="lg" 
-                  className="bg-white text-pink-600 hover:bg-gray-100 rounded-2xl px-8 py-3 font-semibold group"
+                  className="bg-white text-pink-600 hover:bg-gray-100 rounded-2xl px-8 py-3 font-semibold group cursor-pointer"
+                  onClick={() => navigate('/register/user')}
                 >
                   Create Free Account
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
@@ -72,7 +76,8 @@ export default function CallToAction() {
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="border-white/30 text-white hover:bg-white/10 rounded-2xl px-8 py-3 font-semibold backdrop-blur-sm"
+                  className="border-white/30 text-white hover:bg-white/10 rounded-2xl px-8 py-3 font-semibold backdrop-blur-sm cursor-pointer"
+                  onClick={() => navigate('/login')}
                 >
                   Login to Account
                 </Button>
