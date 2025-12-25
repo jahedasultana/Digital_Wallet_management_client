@@ -5,7 +5,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MessageCircle, Send, CheckCircle, Phone, MapPin, Clock } from "lucide-react";
+import { Mail, MessageCircle, Send, CheckCircle, Phone, Clock } from "lucide-react";
 
 export default function Contact() {
   const [loading, setLoading] = useState(false);
