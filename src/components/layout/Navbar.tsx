@@ -5,6 +5,8 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
+  NavigationMenuContent,
+  NavigationMenuTrigger,
 } from "../ui/navigation-menu";
 import { ModeToggle } from "./mode.toggle";
 import {
@@ -16,7 +18,7 @@ import {
   SheetTrigger,
 } from "../ui/sheet";
 import { Button } from "../ui/button";
-import { Menu } from "lucide-react";
+import { Menu, ChevronDown } from "lucide-react";
 import { Link, NavLink } from "react-router";
 import { Separator } from "../ui/separator";
 import { useState } from "react";
@@ -41,6 +43,19 @@ const navLinks = [
   { to: "/admin", label: "Dashboard", role: role.admin },
   { to: "/agent", label: "Dashboard", role: role.agent },
   { to: "/user", label: "Dashboard", role: role.user },
+];
+
+const serviceLinks = [
+  {
+    to: "/services/user-service",
+    label: "User Service",
+    description: "Comprehensive digital wallet services for individual users"
+  },
+  {
+    to: "/services/agent-service",
+    label: "Agent Service",
+    description: "Professional tools and support for business agents"
+  }
 ];
 
 export default function Navbar() {
@@ -93,6 +108,30 @@ export default function Navbar() {
 
                 return null;
               })}
+              
+              {/* Services Mega Menu */}
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="text-foreground hover:text-primary font-medium">
+                  Services
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <div className="grid w-[400px] gap-3 p-4">
+                    {serviceLinks.map((service) => (
+                      <NavigationMenuLink key={service.to} asChild>
+                        <Link
+                          to={service.to}
+                          className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                        >
+                          <div className="text-sm font-medium leading-none">{service.label}</div>
+                          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                            {service.description}
+                          </p>
+                        </Link>
+                      </NavigationMenuLink>
+                    ))}
+                  </div>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
         </div>
@@ -141,6 +180,27 @@ export default function Navbar() {
 
                       return null;
                     })}
+                    
+                    {/* Mobile Services Menu */}
+                    <NavigationMenuItem>
+                      <div className="text-foreground font-medium py-1.5 flex items-center gap-2">
+                        Services
+                        <ChevronDown className="h-4 w-4" />
+                      </div>
+                      <div className="ml-4 space-y-1">
+                        {serviceLinks.map((service) => (
+                          <NavigationMenuLink key={service.to} asChild>
+                            <NavLink
+                              to={service.to}
+                              onClick={() => setOpen(false)}
+                              className="block text-sm text-muted-foreground hover:text-primary py-1"
+                            >
+                              {service.label}
+                            </NavLink>
+                          </NavigationMenuLink>
+                        ))}
+                      </div>
+                    </NavigationMenuItem>
                   </NavigationMenuList>
                 </NavigationMenu>
               </div>

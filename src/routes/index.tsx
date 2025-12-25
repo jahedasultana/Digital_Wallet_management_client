@@ -16,6 +16,8 @@ import Features from "@/components/modules/Home/Features";
 import Pricing from "@/components/modules/Home/Pricing";
 import Contact from "@/components/modules/Home/Contact";
 import Faq from "@/components/modules/Home/Faq";
+import UserServicePage from "@/pages/UserServicePage";
+import AgentServicePage from "@/pages/AgentServicePage";
 import Unauthorized from "@/pages/Unauthorized";
 import NotFound from "@/pages/NotFound";
 const DashboardLayout = lazy(() => import("@/components/layout/DashboardLayout"));
@@ -51,6 +53,14 @@ export const router = createBrowserRouter([
       {
         Component: Faq,
         path: "faq",
+      },
+      {
+        Component: UserServicePage,
+        path: "services/user-service",
+      },
+      {
+        Component: AgentServicePage,
+        path: "services/agent-service",
       },
     ],
   },
