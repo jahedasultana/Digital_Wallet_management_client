@@ -140,3 +140,98 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Global Icon Background and Color Utilities */
+@layer utilities {
+  /* Icon Background Classes */
+  .icon-bg-primary {
+    @apply bg-gradient-to-r from-pink-500 to-orange-500;
+  }
+  
+  .icon-bg-secondary {
+    @apply bg-gradient-to-r from-orange-500 to-pink-500;
+  }
+  
+  .icon-bg-success {
+    @apply bg-gradient-to-r from-green-500 to-emerald-500;
+  }
+  
+  .icon-bg-warning {
+    @apply bg-gradient-to-r from-amber-500 to-orange-400;
+  }
+  
+  .icon-bg-danger {
+    @apply bg-gradient-to-r from-red-500 to-rose-500;
+  }
+  
+  .icon-bg-info {
+    @apply bg-gradient-to-r from-blue-500 to-cyan-500;
+  }
+  
+  .icon-bg-neutral {
+    @apply bg-gradient-to-r from-gray-500 to-slate-500;
+  }
+  
+  /* Icon Container Classes */
+  .icon-container {
+    @apply p-2 rounded-full;
+  }
+  
+  .icon-container-lg {
+    @apply p-3 rounded-2xl;
+  }
+  
+  .icon-container-sm {
+    @apply p-1.5 rounded-lg;
+  }
+  
+  /* Icon Text Colors */
+  .icon-text-white {
+    @apply text-white;
+  }
+  
+  .icon-text-primary {
+    @apply text-pink-500;
+  }
+  
+  .icon-text-secondary {
+    @apply text-orange-500;
+  }
+  
+  .icon-text-success {
+    @apply text-green-500;
+  }
+  
+  .icon-text-warning {
+    @apply text-amber-500;
+  }
+  
+  .icon-text-danger {
+    @apply text-red-500;
+  }
+  
+  .icon-text-info {
+    @apply text-blue-500;
+  }
+  
+  /* Badge Background Classes */
+  .badge-bg-primary {
+    @apply bg-gradient-to-r from-pink-500 to-orange-500 text-white;
+  }
+  
+  .badge-bg-success {
+    @apply bg-gradient-to-r from-green-500 to-emerald-500 text-white;
+  }
+  
+  .badge-bg-warning {
+    @apply bg-gradient-to-r from-amber-500 to-orange-400 text-white;
+  }
+  
+  .badge-bg-danger {
+    @apply bg-gradient-to-r from-red-500 to-rose-500 text-white;
+  }
+  
+  .badge-bg-info {
+    @apply bg-gradient-to-r from-blue-500 to-cyan-500 text-white;
+  }
+}
