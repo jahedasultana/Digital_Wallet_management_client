@@ -97,6 +97,10 @@ export const router = createBrowserRouter([
     path: "/register/:role",
   },
   {
+    path: "/signup",
+    element: <Navigate to="/register/user" replace />,
+  },
+  {
     Component: Unauthorized,
     path: "/unauthorized",
   },

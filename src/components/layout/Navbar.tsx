@@ -144,9 +144,9 @@ export default function Navbar() {
                   Login
                 </Button>
               </Link>
-              <Link to="/user/register">
+              <Link to="/register/user">
                 <Button className="rounded-2xl bg-gradient-to-r from-pink-600 to-orange-500 hover:from-pink-700 hover:to-orange-600 text-white border-0">
-                  Get Started
+                  Sign Up
                 </Button>
               </Link>
             </>
@@ -232,9 +232,9 @@ export default function Navbar() {
                     <Link to="/login" onClick={() => setOpen(false)}>
                       <Button className="w-full rounded-2xl">Login</Button>
                     </Link>
-                    <Link to="/user/register" onClick={() => setOpen(false)}>
+                    <Link to="/register/user" onClick={() => setOpen(false)}>
                       <Button variant="outline" className="w-full rounded-2xl">
-                        Register
+                        Sign Up
                       </Button>
                     </Link>
                   </>

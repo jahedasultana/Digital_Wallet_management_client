@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Users, Shield, CreditCard, Headphones, Clock, CheckCircle } from "lucide-react";
+import { Users, Shield, CreditCard, Headphones, Clock, CheckCircle, Sparkles } from "lucide-react";
 import { useNavigate } from "react-router";
 
 export default function UserServicePage() {
@@ -9,25 +9,25 @@ export default function UserServicePage() {
   
   const services = [
     {
-      icon: <CreditCard className="h-8 w-8 text-blue-600" />,
+      icon: <CreditCard className="h-8 w-8 text-primary" />,
       title: "Digital Wallet Management",
       description: "Secure and easy-to-use digital wallet for all your financial needs",
       features: ["Multi-currency support", "Instant transfers", "Transaction history", "Budget tracking"]
     },
     {
-      icon: <Shield className="h-8 w-8 text-green-600" />,
+      icon: <Shield className="h-8 w-8 text-primary" />,
       title: "Security & Protection",
       description: "Advanced security measures to protect your funds and personal information",
       features: ["Two-factor authentication", "Biometric login", "Fraud detection", "Insurance coverage"]
     },
     {
-      icon: <Headphones className="h-8 w-8 text-purple-600" />,
+      icon: <Headphones className="h-8 w-8 text-primary" />,
       title: "24/7 Customer Support",
       description: "Round-the-clock assistance for all your queries and concerns",
       features: ["Live chat support", "Phone assistance", "Email support", "Video calls"]
     },
     {
-      icon: <Clock className="h-8 w-8 text-orange-600" />,
+      icon: <Clock className="h-8 w-8 text-primary" />,
       title: "Quick Services",
       description: "Fast and efficient services to save your valuable time",
       features: ["Instant account setup", "Quick verification", "Fast transactions", "Real-time notifications"]
@@ -35,18 +35,18 @@ export default function UserServicePage() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-gradient-to-br from-secondary/10 via-background to-primary/5">
       <div className="container mx-auto px-4 py-16">
         {/* Header Section */}
         <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-4">
+          <Badge variant="secondary" className="mb-4 bg-primary/10 text-primary border-primary/20">
             <Users className="h-4 w-4 mr-2" />
             User Services
           </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent mb-6">
             Comprehensive User Services
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Experience premium digital wallet services designed specifically for individual users. 
             Manage your finances with confidence and convenience.
           </p>
@@ -55,22 +55,24 @@ export default function UserServicePage() {
         {/* Services Grid */}
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {services.map((service, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
-              <CardHeader>
-                <div className="flex items-center gap-4">
-                  {service.icon}
-                  <div>
-                    <CardTitle className="text-xl">{service.title}</CardTitle>
-                    <CardDescription className="mt-2">{service.description}</CardDescription>
+            <Card key={index} className="group hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 border-primary/10 hover:border-primary/30 bg-gradient-to-br from-background to-secondary/5">
+              <CardHeader className="pb-4">
+                <div className="flex items-start gap-4">
+                  <div className="p-3 rounded-2xl bg-primary/10 group-hover:bg-primary/20 transition-colors duration-300">
+                    {service.icon}
+                  </div>
+                  <div className="flex-1">
+                    <CardTitle className="text-xl mb-2 group-hover:text-primary transition-colors">{service.title}</CardTitle>
+                    <CardDescription className="text-muted-foreground leading-relaxed">{service.description}</CardDescription>
                   </div>
                 </div>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-2">
-                      <CheckCircle className="h-4 w-4 text-green-500" />
-                      <span className="text-sm text-gray-600 dark:text-gray-300">{feature}</span>
+                    <li key={idx} className="flex items-center gap-3">
+                      <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
+                      <span className="text-sm text-muted-foreground">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -80,20 +82,27 @@ export default function UserServicePage() {
         </div>
 
         {/* CTA Section */}
-        <div className="text-center bg-white dark:bg-gray-800 rounded-2xl p-8 shadow-lg">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-            Ready to Get Started?
-          </h2>
-          <p className="text-gray-600 dark:text-gray-300 mb-6">
-            Join thousands of satisfied users who trust our platform for their digital wallet needs.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="rounded-2xl cursor-pointer " onClick={() => navigate('/register/user')}>
+        <Card className="text-center bg-gradient-to-r from-primary to-primary/80 text-primary-foreground border-0 shadow-2xl">
+          <CardContent className="p-12">
+            <div className="flex justify-center mb-4">
+              <Sparkles className="h-12 w-12 text-primary-foreground/80" />
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Ready to Get Started?
+            </h2>
+            <p className="text-primary-foreground/80 mb-8 max-w-2xl mx-auto text-lg leading-relaxed">
+              Join thousands of satisfied users who trust our platform for their digital wallet needs.
+            </p>
+            <Button 
+              size="lg" 
+              variant="secondary" 
+              className="rounded-2xl px-8 py-6 text-lg font-semibold hover:scale-105 transition-transform" 
+              onClick={() => navigate('/register/user')}
+            >
               Create Account
             </Button>
-           
-          </div>
-        </div>
+          </CardContent>
+        </Card>
       </div>
     </div>
   );
